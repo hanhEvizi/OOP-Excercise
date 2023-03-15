@@ -12,8 +12,8 @@ interface IShape {
 };
 
 abstract class Shape implements IShape {
-    public name: string;
-    public color: string;
+    protected name: string;
+    protected color: string;
 
     constructor(name: string, color: string) {        
         this.name = name;
@@ -21,16 +21,16 @@ abstract class Shape implements IShape {
     };
 
     //getter
-    public getInforShape(): string {
+    public getShapeInformation(): string {
         return `Name is ${this.name} and color is ${this.color}`
     };
     
     //setter
-    public setInforShape(name?: string, color?: string) {
-        if (name) {
+    public setShapeInformation(name?: string, color?: string) {
+        if (name !== undefined) {
             this.name = name;
         }
-        if (color) {
+        if (color != undefined) {
             this.color = color;
         }
     };
@@ -112,7 +112,3 @@ class Circle extends Shape {
 const rectangle = new Rectangle('RectangleA', 'Green', 5, 6);
 const circle = new Circle('CircleB', 'Red', 5);
 const square = new Square('SquareC', 'Orange', 5, 5);
-
-
-
-
